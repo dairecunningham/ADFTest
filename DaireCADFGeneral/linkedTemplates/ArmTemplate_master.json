@@ -1,0 +1,174 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "DaireCADFGeneral"
+		},
+		"ADLSampleData_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ADLSampleData'"
+		},
+		"AzureDataLakeStorage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage'"
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabase1'"
+		},
+		"DaireDataLakeStorageAccount_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'DaireDataLakeStorageAccount'"
+		},
+		"DaireSHIRFolder_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'DaireSHIRFolder'"
+		},
+		"DataFlowDemoBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'DataFlowDemoBlobStorage'"
+		},
+		"FileServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServer1'"
+		},
+		"Xero1_connectionProperties_consumerKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'consumerKey' of 'Xero1'"
+		},
+		"Xero1_connectionProperties_privateKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'privateKey' of 'Xero1'"
+		},
+		"ADLSampleData_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://dairedatalake.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlmlbootcamprg.dfs.core.windows.net"
+		},
+		"DaireDataLakeStorageAccount_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://dairedatalake.dfs.core.windows.net"
+		},
+		"DaireSHIRFolder_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\ADF SHIR Test\\In"
+		},
+		"DaireSHIRFolder_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "SPT\\DAireCunningham"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "C:\\Temp\\BWG"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "SPT\\DaireCunningham"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "DaireCADFGeneral_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLSampleData_accountKey": {
+						"value": "[parameters('ADLSampleData_accountKey')]"
+					},
+					"AzureDataLakeStorage_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage_accountKey')]"
+					},
+					"AzureSqlDatabase1_connectionString": {
+						"value": "[parameters('AzureSqlDatabase1_connectionString')]"
+					},
+					"DaireDataLakeStorageAccount_accountKey": {
+						"value": "[parameters('DaireDataLakeStorageAccount_accountKey')]"
+					},
+					"DataFlowDemoBlobStorage_connectionString": {
+						"value": "[parameters('DataFlowDemoBlobStorage_connectionString')]"
+					},
+					"Xero1_connectionProperties_consumerKey": {
+						"value": "[parameters('Xero1_connectionProperties_consumerKey')]"
+					},
+					"Xero1_connectionProperties_privateKey": {
+						"value": "[parameters('Xero1_connectionProperties_privateKey')]"
+					},
+					"DaireSHIRFolder_password": {
+						"value": "[parameters('DaireSHIRFolder_password')]"
+					},
+					"ADLSampleData_properties_typeProperties_url": {
+						"value": "[parameters('ADLSampleData_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage_properties_typeProperties_url')]"
+					},
+					"DaireDataLakeStorageAccount_properties_typeProperties_url": {
+						"value": "[parameters('DaireDataLakeStorageAccount_properties_typeProperties_url')]"
+					},
+					"DaireSHIRFolder_properties_typeProperties_host": {
+						"value": "[parameters('DaireSHIRFolder_properties_typeProperties_host')]"
+					},
+					"DaireSHIRFolder_properties_typeProperties_userId": {
+						"value": "[parameters('DaireSHIRFolder_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "DaireCADFGeneral_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"FileServer1_password": {
+						"value": "[parameters('FileServer1_password')]"
+					},
+					"FileServer1_properties_typeProperties_host": {
+						"value": "[parameters('FileServer1_properties_typeProperties_host')]"
+					},
+					"FileServer1_properties_typeProperties_userId": {
+						"value": "[parameters('FileServer1_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'DaireCADFGeneral_ArmTemplate_0')]"
+			]
+		}
+	]
+}

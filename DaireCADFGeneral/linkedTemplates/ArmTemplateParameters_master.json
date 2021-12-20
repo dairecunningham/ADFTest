@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "DaireCADFGeneral"
+		},
+		"ADLSampleData_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_connectionString": {
+			"value": ""
+		},
+		"DaireDataLakeStorageAccount_accountKey": {
+			"value": ""
+		},
+		"DaireSHIRFolder_password": {
+			"value": ""
+		},
+		"DataFlowDemoBlobStorage_connectionString": {
+			"value": ""
+		},
+		"FileServer1_password": {
+			"value": ""
+		},
+		"Xero1_connectionProperties_consumerKey": {
+			"value": ""
+		},
+		"Xero1_connectionProperties_privateKey": {
+			"value": ""
+		},
+		"ADLSampleData_properties_typeProperties_url": {
+			"value": "https://dairedatalake.dfs.core.windows.net"
+		},
+		"AzureDataLakeStorage_properties_typeProperties_url": {
+			"value": "https://adlmlbootcamprg.dfs.core.windows.net"
+		},
+		"DaireDataLakeStorageAccount_properties_typeProperties_url": {
+			"value": "https://dairedatalake.dfs.core.windows.net"
+		},
+		"DaireSHIRFolder_properties_typeProperties_host": {
+			"value": "C:\\ADF SHIR Test\\In"
+		},
+		"DaireSHIRFolder_properties_typeProperties_userId": {
+			"value": "SPT\\DAireCunningham"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"value": "C:\\Temp\\BWG"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "SPT\\DaireCunningham"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
