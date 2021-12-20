@@ -1,0 +1,9 @@
+{
+	"name": "DaireCADFGeneral",
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e819a5d6-9346-4f70-85d6-763cdfb399fe",
+		"tenantId": "f70f0107-537c-4ef9-8e7c-d38f9a0c5e84"
+	}
+}

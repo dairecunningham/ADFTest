@@ -1,0 +1,19 @@
+{
+	"name": "iNewsSource",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DaireDataLakeStorageAccount",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Xml",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "new 1.xml",
+				"fileSystem": "dairedatalake"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

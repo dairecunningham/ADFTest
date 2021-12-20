@@ -1,0 +1,125 @@
+{
+	"name": "iNewsPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy iNews Test",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "XmlSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "XmlReadSettings",
+							"validationMode": "none",
+							"detectDataType": false,
+							"namespaces": true
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['nsml']['head']['storyid']"
+								},
+								"sink": {
+									"name": "StoryID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['nsml']['fields']['string'][?(@.['@id']=='title')]['_value_']"
+								},
+								"sink": {
+									"name": "Title",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['nsml']['fields']['string'][?(@.['@id']=='var-1')]['_value_']"
+								},
+								"sink": {
+									"name": "PresenterName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['nsml']['fields']['duration'][?(@.['@id']=='total-time')]['_value_']"
+								},
+								"sink": {
+									"name": "TotalTime",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['nsml']['fields']['date'][?(@.['@id']=='air-date')]['_value_']"
+								},
+								"sink": {
+									"name": "AirDate",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['nsml']['aeset']['ae'][0]['@type']"
+								},
+								"sink": {
+									"name": "GenderCode",
+									"type": "String"
+								}
+							}
+						],
+						"collectionReference": "",
+						"mapComplexValuesToString": false
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "iNewsSource",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "iNewsDestination",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-11-04T12:31:09Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

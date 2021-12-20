@@ -1,0 +1,118 @@
+{
+	"name": "BikeData",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Chicago Divvy Bicycle.csv",
+				"folderPath": "chicago-bike-data",
+				"fileSystem": "adf-data"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "trip_id",
+				"type": "String"
+			},
+			{
+				"name": "year",
+				"type": "String"
+			},
+			{
+				"name": "month",
+				"type": "String"
+			},
+			{
+				"name": "week",
+				"type": "String"
+			},
+			{
+				"name": "day",
+				"type": "String"
+			},
+			{
+				"name": "hour",
+				"type": "String"
+			},
+			{
+				"name": "usertype",
+				"type": "String"
+			},
+			{
+				"name": "gender",
+				"type": "String"
+			},
+			{
+				"name": "starttime",
+				"type": "String"
+			},
+			{
+				"name": "stoptime",
+				"type": "String"
+			},
+			{
+				"name": "tripduration",
+				"type": "String"
+			},
+			{
+				"name": "temperature",
+				"type": "String"
+			},
+			{
+				"name": "events",
+				"type": "String"
+			},
+			{
+				"name": "from_station_id",
+				"type": "String"
+			},
+			{
+				"name": "from_station_name",
+				"type": "String"
+			},
+			{
+				"name": "latitude_start",
+				"type": "String"
+			},
+			{
+				"name": "longitude_start",
+				"type": "String"
+			},
+			{
+				"name": "dpcapacity_start",
+				"type": "String"
+			},
+			{
+				"name": "to_station_id",
+				"type": "String"
+			},
+			{
+				"name": "to_station_name",
+				"type": "String"
+			},
+			{
+				"name": "latitude_end",
+				"type": "String"
+			},
+			{
+				"name": "longitude_end",
+				"type": "String"
+			},
+			{
+				"name": "dpcapacity_end",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

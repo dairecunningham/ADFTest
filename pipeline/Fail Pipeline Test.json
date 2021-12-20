@@ -1,0 +1,20 @@
+{
+	"name": "Fail Pipeline Test",
+	"properties": {
+		"activities": [
+			{
+				"name": "FailOnPurpose",
+				"type": "Fail",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"message": "Pipeline Fail",
+					"errorCode": "1234"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-12-16T11:51:36Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

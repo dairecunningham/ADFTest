@@ -1,0 +1,19 @@
+{
+	"name": "XMLFilesPresent",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DaireDataLakeStorageAccount",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Xml",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "refined",
+				"fileSystem": "rte"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

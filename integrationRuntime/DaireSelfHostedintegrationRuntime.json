@@ -1,0 +1,6 @@
+{
+	"name": "DaireSelfHostedintegrationRuntime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
