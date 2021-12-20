@@ -9,7 +9,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"message": "Pipeline Fail",
-					"errorCode": "123456"
+					"errorCode": "123456Feature"
 				}
 			}
 		],
